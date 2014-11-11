@@ -3,6 +3,8 @@ class Contact < ActiveRecord::Base
   belongs_to :user
   has_many :meetings
 
+  scope :remind_this_week, -> { where('remind_on = ?', Date.today+7) }
+
   delegate :drink_count, to: :meetings
 
   def drink_count
