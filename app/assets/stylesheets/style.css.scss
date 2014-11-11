@@ -1,0 +1,47 @@
+body {
+  font-family: helvetica, arial;
+  @include outer-container;
+  background-color: #333333;
+  color: white;
+}
+
+input {
+  text-align: center;
+  padding: 10px;
+  font-size: 1.25em;
+}
+button {
+  @include button(pill, #00aa00);
+  margin: 10px 0;
+  outline: none;
+  &.remove {
+    @include button(pill, #aa0000);
+  }
+  &.add {
+    @include button(pill, #0000aa);
+  }
+}
+
+#home {
+
+  #addContact {
+    @include span-columns(12);
+    text-align: center;
+    padding: 20px 0;
+  }
+  .contact {
+    @include fill-parent;
+    @include span-columns(3);
+    text-align: left;
+    padding: 20px 0;
+    img {
+      width:  150px;
+      height: 150px;
+      border: 1px solid white;
+      background-color: white;
+    }
+    p {
+      line-height: 1.5em;
+    }
+  }
+}

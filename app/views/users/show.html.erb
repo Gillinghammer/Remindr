@@ -1,0 +1,27 @@
+<!-- Add @include outer-container(100%) to element -->
+<div id="home">
+  <!-- span all columns -->
+  <div id="addContact">
+    <input id="nameField" type="text" placeholder="Name"><br>
+    <input id="emailField" type="text" placeholder="Email"><br>
+    <input id="avatarField" type="text" placeholder="Avatar URL"><br>
+    <select id="intervalField" >
+      <option value="365">Yearly</option>
+      <option value="30">Monthly</option>
+      <option value="7">Weekly</option>
+      <option value="1">Daily</option>
+    </select><br>
+    <button class="add" ng-click="addContact()">Add Contact</button>
+  </div>
+    <div class="contact" ng-repeat="contact in myContacts | orderBy: 'remind_on':reverse">
+      <img src="{{contact.avatar}}">
+      <h3>{{contact.name}}</h3>
+      <p>Remind every {{contact.remind_interval}} days.</p>
+      <p>Remind on:<br> {{contact.remind_on | date:'MMMM d, y'}}</p>
+      <p>Last Drink:<br> {{contact.last_meeting | date:'EEEE, MMMM d'}} </p>
+      <p>Status: {{ contact.status }}</p>
+      <p>Total Drinks: {{contact.drink_count}} </p>
+      <button ng-click="recordDrink(contact)">We Drank</button><br>
+      <button class="remove" ng-click="removeContact(contact)">Remove</button>
+    </div>
+</div>

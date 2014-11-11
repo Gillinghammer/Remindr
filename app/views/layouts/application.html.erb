@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html ng-app="drinkyApp">
+<head>
+  <title>DrinkyApp</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= csrf_meta_tags %>
+  <%= javascript_include_tag "application" %>
+</head>
+<body ng-controller="DrinkyController as drinky">
+  
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+    <%= link_to "Sign out", destroy_user_session_path, :method => :delete if user_signed_in? %>
+    <%= link_to "Sign in", new_user_session_path unless user_signed_in? %>
+<%= yield %>
+
+</body>
+</html>
