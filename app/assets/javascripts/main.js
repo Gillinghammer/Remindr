@@ -7,11 +7,13 @@
 
     $scope.myContacts = [];
 
+    $scope.showAddFriend = true;
+
 // DEFINE FUNCTIONS HERE
     $scope.getContacts = function(){
       $http.get('/users/1/contacts.json').success(function(data){
         $scope.myContacts = data['contacts']
-        console.log($scope.myContacts)
+        console.log($scope.myContacts);
       });
     };
 
@@ -28,7 +30,7 @@
           remind_interval: selectedInterval,
           user_id: 1
         }).success(function(data){
-
+          $scope.showAddFriend = true;
           $scope.getContacts();
           $('#nameField').val("");
           $('#emailField').val("");

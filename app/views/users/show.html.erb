@@ -1,7 +1,8 @@
 <!-- Add @include outer-container(100%) to element -->
 <div id="home">
   <!-- span all columns -->
-  <div id="addContact">
+  <i class="fa fa-plus-circle" ng-click="showAddFriend=!showAddFriend"></i>
+  <div id="addContact" ng-hide="showAddFriend" class="animated bounceInDown">    
     <input id="nameField" type="text" placeholder="Name"><br>
     <input id="emailField" type="text" placeholder="Email"><br>
     <input id="avatarField" type="text" placeholder="Avatar URL"><br>
