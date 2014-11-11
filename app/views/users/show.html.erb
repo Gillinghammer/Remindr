@@ -5,12 +5,7 @@
     <input id="nameField" type="text" placeholder="Name"><br>
     <input id="emailField" type="text" placeholder="Email"><br>
     <input id="avatarField" type="text" placeholder="Avatar URL"><br>
-    <select id="intervalField" >
-      <option value="365">Yearly</option>
-      <option value="30">Monthly</option>
-      <option value="7">Weekly</option>
-      <option value="1">Daily</option>
-    </select><br>
+    <input id="intervalField" type="text" placeholder="Remindr Frequency"><br>
     <button class="add" ng-click="addContact()">Add Contact</button>
   </div>
     <div class="contact" ng-repeat="contact in myContacts | orderBy: 'remind_on':reverse">

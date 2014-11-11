@@ -19,7 +19,7 @@
       contactName = $('#nameField').val()
       contactEmail = $('#emailField').val()
       contactAvatar = $('#avatarField').val()
-      selectedInterval = parseInt($('select').val());
+      selectedInterval = parseInt($('#intervalField').val());
       $http.post('/users/1/contacts.json', 
         {
           name: contactName, 
