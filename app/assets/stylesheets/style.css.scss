@@ -1,8 +1,51 @@
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans:400,700);
+$nav-color: #153439;
+$headline-color: #91C98C;
+$link-color: #26768D;
+$sub-headline-color: #1B544B;
+$text-color: $headline-color;
+
+$fonts: 'Droid Sans', sans-serif;
+
 body {
-  font-family: helvetica, arial;
-  @include outer-container;
-  // background-color: #333333;
-  // color: white;
+  font-family: $fonts;
+
+  a {
+    text-decoration: none;
+    color: $link-color;
+    font-weight: 400;
+  }
+
+  h2 {
+    color: $nav-color;
+  }
+
+  h3 {
+    color: $sub-headline-color;
+  }
+  p {
+    color: $text-color;
+    text-align: left;
+    line-height: 1.5em;
+  }
+  
+  nav {
+    @include row();
+    background-color: $nav-color;
+    color: $headline-color;
+    border-bottom: 10px solid $link-color;
+    h1 {
+      @include span-columns(9);
+      @include shift(1);
+      padding: 0;
+    }
+    h4 {
+      @include span-columns(1);
+      @include shift(-1);
+      text-align: right;
+      padding-top: 10px;
+    }
+  }
 }
 
 input {
@@ -11,36 +54,42 @@ input {
   font-size: 1.25em;
 }
 button {
-  @include button(pill, #00aa00);
-  margin: 10px 0;
+  @include button(shiny, $headline-color);
+  margin: 10px;
   outline: none;
   &.remove {
-    @include button(pill, #aa0000);
-  }
-  &.add {
-    @include button(pill, #0000aa);
+    @include button(shiny, #aa0000);
   }
 }
 
 #home {
+  @include outer-container;
   #contactColumns {
     @include row();
     #Friends, #Family, #Professional {
       @include span-columns(4);
-      border: 1px solid black;
       text-align: center;
       .contact {
         @include fill-parent;
         text-align: center;
         padding: 20px 0;
         img {
-          width:  150px;
-          height: 150px;
-          border: 1px solid white;
+          width:  200px;
+          height: 200px;
           background-color: white;
+          @include border-top-radius(150px);
+          @include border-right-radius(150px);
+          @include border-bottom-radius(150px);
+          @include border-left-radius(150px);
+          border: 10px solid $link-color;
         }
-        p {
-          line-height: 1.5em;
+        .textInfo {
+          padding: 15px 25px;
+          background-color: $nav-color;
+          @include border-top-radius(15px);
+          @include border-right-radius(15px);
+          @include border-bottom-radius(15px);
+          @include border-left-radius(15px);
         }
       }
     }
