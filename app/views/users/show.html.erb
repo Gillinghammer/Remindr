@@ -1,8 +1,8 @@
 <!-- Add @include outer-container(100%) to element -->
 <div id="home">
   <!-- span all columns -->
-  <i class="fa fa-plus-circle" ng-click="showAddFriend=!showAddFriend"></i>
-  <div id="addContact" ng-hide="showAddFriend" class="animated bounceInDown">    
+  <!-- <i class="fa fa-plus-circle" ng-click="showAddFriend=!showAddFriend"></i> -->
+  <!-- <div id="addContact" ng-hide="showAddFriend" class="animated bounceInDown">    
     <input id="nameField" type="text" placeholder="Name"><br>
     <input id="emailField" type="text" placeholder="Email"><br>
     <select id="contactTypeField">
@@ -13,17 +13,53 @@
     <input id="avatarField" type="text" placeholder="Avatar URL"><br>
     <input id="intervalField" type="text" placeholder="Remindr Frequency"><br>
     <button class="add" ng-click="addContact()">Add Contact</button>
-  </div>
-    <div class="contact" ng-repeat="contact in myContacts | orderBy: 'remind_on':reverse | filter:{ contact_type: 'Friend'}">
-      <img src="{{contact.avatar}}">
-      <h3>{{contact.name}}</h3>
-      <p>Type: {{ contact.contact_type }}</p>
-      <p>Remind every {{contact.remind_interval}} days.</p>
-      <p>Remind on:<br> {{contact.remind_on | date:'MMMM d, y'}}</p>
-      <p>Last Drink:<br> {{contact.last_meeting | date:'EEEE, MMMM d'}} </p>
-      <p>Status: {{ contact.status }}</p>
-      <p>Total Drinks: {{contact.drink_count}} </p>
-      <button ng-click="recordDrink(contact)">We Met!</button><br>
-      <button class="remove" ng-click="removeContact(contact)">Remove Contact</button>
+  </div> -->
+  <div id="contactColumns">
+    <div id="Friends">
+      <h2>Friends</h2>
+      <div class="contact" ng-repeat="contact in myContacts | orderBy: 'remind_on':reverse | filter:{ contact_type: 'Friend'}">
+        <img src="{{contact.avatar}}">
+        <h3>{{contact.name}}</h3>
+        <p>Type: {{ contact.contact_type }}</p>
+        <p>Remind every {{contact.remind_interval}} days.</p>
+        <p>Remind on:<br> {{contact.remind_on | date:'MMMM d, y'}}</p>
+        <p>Last Drink:<br> {{contact.last_meeting | date:'EEEE, MMMM d'}} </p>
+        <p>Status: {{ contact.status }}</p>
+        <p>Total Drinks: {{contact.drink_count}} </p>
+        <button ng-click="recordDrink(contact)">We Met!</button><br>
+        <button class="remove" ng-click="removeContact(contact)">Remove Contact</button>
+      </div>
     </div>
+    <div id="Family">
+      <h2>Family</h2>
+      <div class="contact" ng-repeat="contact in myContacts | orderBy: 'remind_on':reverse | filter:{ contact_type: 'Family'}">
+        <img src="{{contact.avatar}}">
+        <h3>{{contact.name}}</h3>
+        <p>Type: {{ contact.contact_type }}</p>
+        <p>Remind every {{contact.remind_interval}} days.</p>
+        <p>Remind on:<br> {{contact.remind_on | date:'MMMM d, y'}}</p>
+        <p>Last Drink:<br> {{contact.last_meeting | date:'EEEE, MMMM d'}} </p>
+        <p>Status: {{ contact.status }}</p>
+        <p>Total Drinks: {{contact.drink_count}} </p>
+        <button ng-click="recordDrink(contact)">We Met!</button><br>
+        <button class="remove" ng-click="removeContact(contact)">Remove Contact</button>
+      </div>
+    </div>
+    <div id="Professional">
+      <h2>Professional</h2>
+      <div class="contact" ng-repeat="contact in myContacts | orderBy: 'remind_on':reverse | filter:{ contact_type: 'Professional'}">
+        <img src="{{contact.avatar}}">
+        <h3>{{contact.name}}</h3>
+        <p>Type: {{ contact.contact_type }}</p>
+        <p>Remind every {{contact.remind_interval}} days.</p>
+        <p>Remind on:<br> {{contact.remind_on | date:'MMMM d, y'}}</p>
+        <p>Last Drink:<br> {{contact.last_meeting | date:'EEEE, MMMM d'}} </p>
+        <p>Status: {{ contact.status }}</p>
+        <p>Total Drinks: {{contact.drink_count}} </p>
+        <button ng-click="recordDrink(contact)">We Met!</button><br>
+        <button class="remove" ng-click="removeContact(contact)">Remove Contact</button>
+      </div>
+    </div>
+  </div>
+    
 </div>
