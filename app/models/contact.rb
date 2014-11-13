@@ -1,5 +1,5 @@
 class Contact < ActiveRecord::Base
-  attr_accessible :avatar, :email, :name, :user_id, :status, :last_meeting, :reminder_countdown, :remind_on, :remind_interval
+  attr_accessible :avatar, :email, :name, :user_id, :status, :last_meeting, :reminder_countdown, :remind_on, :remind_interval, :contact_type
   belongs_to :user
   has_many :meetings
 

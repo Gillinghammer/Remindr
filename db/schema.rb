@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141111142628) do
+ActiveRecord::Schema.define(:version => 20141113104725) do
 
   create_table "contacts", :force => true do |t|
     t.string   "name"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20141111142628) do
     t.date     "last_meeting"
     t.integer  "remind_interval"
     t.date     "remind_on"
+    t.string   "contact_type"
   end
 
   create_table "meetings", :force => true do |t|

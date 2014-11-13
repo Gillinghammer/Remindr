@@ -22,11 +22,13 @@
       contactEmail = $('#emailField').val()
       contactAvatar = $('#avatarField').val()
       selectedInterval = parseInt($('#intervalField').val());
+      contactType = $('#contactTypeField').val();
       $http.post('/users/1/contacts.json', 
         {
           name: contactName, 
           email: contactEmail,
           avatar: contactAvatar,
+          contact_type: contactType,
           remind_interval: selectedInterval,
           user_id: 1
         }).success(function(data){
