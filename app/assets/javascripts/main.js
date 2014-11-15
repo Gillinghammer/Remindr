@@ -73,7 +73,11 @@
 
     $scope.flip = function(contact){
       $scope.flipId = contact.id;
-      console.log($scope.flipId);
+    }
+
+    $scope.clearFlip = function(){
+      $scope.flipId = false;
+      console.log('mouse left');
     }
 
 // CALL FUNCTIONS HERE

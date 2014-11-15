@@ -41,7 +41,8 @@
   <div id="Professional">
     <h2>Professional</h2>
     <div class="contact" ng-repeat="contact in myContacts | orderBy: 'remind_on':reverse | filter:{ contact_type: 'Professional'}">
-      <div class="avatar" ng-click="flip(contact)">
+      <div class="avatar" ng-click="flip(contact)" ng-mouseenter="flipId = contact.id"
+      ng-mouseleave="flipId = 0">
                 <div class="bg" style="background-image: url({{contact.avatar}})" ng-class="{'selected' : flipId === contact.id}"></div>
                 <span ng-show="flipId === contact.id">{{contact.days}}<br><span class="days">days</span></span>
               </div>
