@@ -5,63 +5,56 @@
     <div id="Friends">
       <h2>Friends</h2>
       <div class="contact" ng-repeat="contact in myContacts | orderBy: 'remind_on':reverse | filter:{ contact_type: 'Friend'}">
-        <div class="avatar" ng-click="flip(contact)" style="background-image: url({{contact.avatar}})">
-
-          <span ng-show="flipId === contact.id">{{contact.days}}</span>
+        <div class="avatar" ng-click="flip(contact)">
+          <div class="bg" style="background-image: url({{contact.avatar}})" ng-class="{'selected' : flipId === contact.id}"></div>
+          <span ng-show="flipId === contact.id">{{contact.days}}<br><span class="days">days</span></span>
         </div>
         <h3>{{contact.name}}</h3>
         <div class="textInfo">
-          <p><strong>Contact by:</strong> {{contact.remind_on | date:'MMMM d, y'}}</p>
-          <p><strong>Last:</strong> {{contact.last_meeting | date:'EEEE, MMMM d'}} </p>
-          <p><strong>Keep in touch every:</strong> {{contact.remind_interval}} days</p>
-          
-          <p><strong>Status:</strong> {{ contact.status }}</p>
-          <p><strong>Meeting Count:</strong> {{contact.drink_count}} </p>
+          <p><strong>Last Meeting:</strong> {{contact.last_meeting | date:'EEEE, MMMM d'}} </p>
+          <p><strong>Remind inverval: </strong> {{contact.remind_interval}} days</p>
+         <!--  <p><strong>Status:</strong> {{ contact.status }}</p> -->
         </div>
         <button ng-click="recordDrink(contact)">We Met!</button>
-        <button class="remove" ng-click="removeContact(contact)">Remove Contact</button>
+        <button class="remove" ng-click="removeContact(contact)">Delete</button>
       </div>
     </div>
     <div id="Family">
       <h2>Family</h2>
       <div class="contact" ng-repeat="contact in myContacts | orderBy: 'remind_on':reverse | filter:{ contact_type: 'Family'}">
-        <div class="avatar" ng-click="flip(contact)" style="background-image: url({{contact.avatar}})">
-
-          <span ng-show="flipId === contact.id">{{contact.days}}</span>
-        </div>
+        <div class="avatar" ng-click="flip(contact)">
+                  <div class="bg" style="background-image: url({{contact.avatar}})" ng-class="{'selected' : flipId === contact.id}"></div>
+                  <span ng-show="flipId === contact.id">{{contact.days}}<br><span class="days">days</span></span>
+                </div>
        <h3>{{contact.name}}</h3>
        <div class="textInfo">
-        <p><strong>Contact by:</strong> {{contact.remind_on | date:'MMMM d, y'}}</p>
-        <p><strong>Last:</strong> {{contact.last_meeting | date:'EEEE, MMMM d'}} </p>
-        <p><strong>Keep in touch every:</strong> {{contact.remind_interval}} days</p>
+        <p><strong>Last Meeting:</strong> {{contact.last_meeting | date:'EEEE, MMMM d'}} </p>
+        <p><strong>Remind inverval: </strong> {{contact.remind_interval}} days</p>
 
 
-        <p><strong>Status:</strong> {{ contact.status }}</p>
-        <p><strong>Meeting Count:</strong> {{contact.drink_count}} </p>
+       <!--  <p><strong>Status:</strong> {{ contact.status }}</p> -->
       </div>
       <button ng-click="recordDrink(contact)">We Met!</button>
-      <button class="remove" ng-click="removeContact(contact)">Remove Contact</button>
+      <button class="remove" ng-click="removeContact(contact)">Delete</button>
     </div>
   </div>
   <div id="Professional">
     <h2>Professional</h2>
     <div class="contact" ng-repeat="contact in myContacts | orderBy: 'remind_on':reverse | filter:{ contact_type: 'Professional'}">
-      <div class="avatar" ng-click="flip(contact)" style="background-image: url({{contact.avatar}})">
-
-        <span ng-show="flipId === contact.id">{{contact.days}}</span>
-      </div>
+      <div class="avatar" ng-click="flip(contact)">
+                <div class="bg" style="background-image: url({{contact.avatar}})" ng-class="{'selected' : flipId === contact.id}"></div>
+                <span ng-show="flipId === contact.id">{{contact.days}}<br><span class="days">days</span></span>
+              </div>
      <h3>{{contact.name}}</h3>
      <div class="textInfo">
-      <p><strong>Contact by:</strong> {{contact.remind_on | date:'MMMM d, y'}}</p>
-      <p><strong>Last:</strong> {{contact.last_meeting | date:'EEEE, MMMM d'}} </p>
-      <p><strong>Keep in touch every:</strong> {{contact.remind_interval}} days</p>
+      <p><strong>Last Meeting:</strong> {{contact.last_meeting | date:'EEEE, MMMM d'}} </p>
+      <p><strong>Remind inverval: </strong> {{contact.remind_interval}} days</p>
 
 
-      <p><strong>Status:</strong> {{ contact.status }}</p>
-      <p><strong>Meeting Count:</strong> {{contact.drink_count}} </p>
+     <!--  <p><strong>Status:</strong> {{ contact.status }}</p> -->
     </div>
     <button ng-click="recordDrink(contact)">We Met!</button>
-    <button class="remove" ng-click="removeContact(contact)">Remove Contact</button>
+    <button class="remove" ng-click="removeContact(contact)">Delete</button>
   </div>
 </div>
 </div>
