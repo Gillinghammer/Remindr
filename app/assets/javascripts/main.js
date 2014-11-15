@@ -1,6 +1,6 @@
 (function(){
 
-  var app = angular.module('drinkyApp',[])
+  var app = angular.module('drinkyApp',['ngAnimate'])
 
 
   app.controller('DrinkyController',["$scope", "$http",  function($scope, $http){
@@ -13,6 +13,12 @@
     $scope.getContacts = function(){
       $http.get('/users/1/contacts.json').success(function(data){
         $scope.myContacts = data['contacts']
+
+        angular.forEach($scope.myContacts, function(value, key){
+          value['days'] = moment(value.remind_on).diff(moment(), 'days');
+        });
+
+
         console.log($scope.myContacts);
       });
     };
@@ -56,6 +62,11 @@
         console.log("meeting recorded");
         $scope.getContacts();
       })
+    }
+
+    $scope.flip = function(contact){
+      $scope.flipId = contact.id;
+      console.log($scope.flipId);
     }
 
 // CALL FUNCTIONS HERE

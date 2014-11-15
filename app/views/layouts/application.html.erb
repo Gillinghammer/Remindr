@@ -2,18 +2,40 @@
 <html ng-app="drinkyApp">
 <head>
   <title>Remindr</title>
+
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= csrf_meta_tags %>
   <%= javascript_include_tag "application" %>
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 </head>
 <body ng-controller="DrinkyController as drinky">
   <nav>
     <h1>REMINDr</h1>
+    <div id="addContactButton" ng-click="showAddFriend=!showAddFriend">
+      <i class="fa fa-plus-circle" ></i>
+      <span class="buttonText">Add Contact</span>
+    </div>
     <h4><%= link_to "Sign out", destroy_user_session_path, :method => :delete if user_signed_in? %>
     <%= link_to "Sign in", new_user_session_path unless user_signed_in? %></h4>
   </nav>
-
+  <div id="addContact" ng-hide="showAddFriend">  
+    <div id="leftColumn">
+      <input id="nameField" type="text" placeholder="Name">
+      <input id="emailField" type="text" placeholder="Email">
+      <input id="avatarField" type="text" placeholder="Avatar URL">
+      
+      <input id="intervalField" type="text" placeholder="Remindr Frequency">
+    </div>
+    <div id="rightColumn">
+      <select id="contactTypeField">
+        <option value="Professional">Professional</option>
+        <option value="Family">Family</option>
+        <option value="Friend">Friend</option>
+      </select><br>
+      <button class="add" ng-click="addContact()">Add Contact</button>
+    </div>  
+  </div>
 <%= yield %>
   <footer>
     <p class="notice"><%= notice %></p>
