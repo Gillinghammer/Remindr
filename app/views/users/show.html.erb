@@ -5,58 +5,60 @@
     <div id="Friends">
       <h2>Friends</h2>
       <div class="contact" ng-repeat="contact in myContacts | orderBy: 'remind_on':reverse | filter:{ contact_type: 'Friend'}">
-        <div class="avatar" ng-click="flip(contact)">
-          <div class="bg" style="background-image: url({{contact.avatar}})" ng-class="{'selected' : flipId === contact.id}"></div>
-          <span ng-show="flipId === contact.id">{{contact.days}}<br><span class="days">days</span></span>
-        </div>
-        <h3>{{contact.name}}</h3>
-        <div class="textInfo">
-          <p><strong>Last Meeting:</strong> {{contact.last_meeting | date:'EEEE, MMMM d'}} </p>
-          <p><strong>Remind inverval: </strong> {{contact.remind_interval}} days</p>
-         <!--  <p><strong>Status:</strong> {{ contact.status }}</p> -->
-        </div>
-        <button ng-click="recordDrink(contact)">We Met!</button>
-        <button class="remove" ng-click="removeContact(contact)">Delete</button>
+        <div class="avatar" ng-click="flip(contact)" ng-mouseenter="flipId = contact.id"
+        ng-mouseleave="flipId = 0">
+        <div class="bg" style="background-image: url({{contact.avatar}})" ng-class="{'selected' : flipId === contact.id}"></div>
+        <span ng-show="flipId === contact.id">{{contact.days}}<br><span class="days">days</span></span>
       </div>
-    </div>
-    <div id="Family">
-      <h2>Family</h2>
-      <div class="contact" ng-repeat="contact in myContacts | orderBy: 'remind_on':reverse | filter:{ contact_type: 'Family'}">
-        <div class="avatar" ng-click="flip(contact)">
-                  <div class="bg" style="background-image: url({{contact.avatar}})" ng-class="{'selected' : flipId === contact.id}"></div>
-                  <span ng-show="flipId === contact.id">{{contact.days}}<br><span class="days">days</span></span>
-                </div>
-       <h3>{{contact.name}}</h3>
-       <div class="textInfo">
+      <h3>{{contact.name}}</h3>
+      <div class="textInfo">
         <p><strong>Last Meeting:</strong> {{contact.last_meeting | date:'EEEE, MMMM d'}} </p>
         <p><strong>Remind inverval: </strong> {{contact.remind_interval}} days</p>
-
-
-       <!--  <p><strong>Status:</strong> {{ contact.status }}</p> -->
+        <!--  <p><strong>Status:</strong> {{ contact.status }}</p> -->
       </div>
       <button ng-click="recordDrink(contact)">We Met!</button>
       <button class="remove" ng-click="removeContact(contact)">Delete</button>
     </div>
   </div>
-  <div id="Professional">
-    <h2>Professional</h2>
-    <div class="contact" ng-repeat="contact in myContacts | orderBy: 'remind_on':reverse | filter:{ contact_type: 'Professional'}">
+  <div id="Family">
+    <h2>Family</h2>
+    <div class="contact" ng-repeat="contact in myContacts | orderBy: 'remind_on':reverse | filter:{ contact_type: 'Family'}">
       <div class="avatar" ng-click="flip(contact)" ng-mouseenter="flipId = contact.id"
       ng-mouseleave="flipId = 0">
-                <div class="bg" style="background-image: url({{contact.avatar}})" ng-class="{'selected' : flipId === contact.id}"></div>
-                <span ng-show="flipId === contact.id">{{contact.days}}<br><span class="days">days</span></span>
-              </div>
-     <h3>{{contact.name}}</h3>
-     <div class="textInfo">
+      <div class="bg" style="background-image: url({{contact.avatar}})" ng-class="{'selected' : flipId === contact.id}"></div>
+      <span ng-show="flipId === contact.id">{{contact.days}}<br><span class="days">days</span></span>
+    </div>
+    <h3>{{contact.name}}</h3>
+    <div class="textInfo">
       <p><strong>Last Meeting:</strong> {{contact.last_meeting | date:'EEEE, MMMM d'}} </p>
       <p><strong>Remind inverval: </strong> {{contact.remind_interval}} days</p>
 
 
-     <!--  <p><strong>Status:</strong> {{ contact.status }}</p> -->
+      <!--  <p><strong>Status:</strong> {{ contact.status }}</p> -->
     </div>
     <button ng-click="recordDrink(contact)">We Met!</button>
     <button class="remove" ng-click="removeContact(contact)">Delete</button>
   </div>
+</div>
+<div id="Professional">
+  <h2>Professional</h2>
+  <div class="contact" ng-repeat="contact in myContacts | orderBy: 'remind_on':reverse | filter:{ contact_type: 'Professional'}">
+    <div class="avatar" ng-click="flip(contact)" ng-mouseenter="flipId = contact.id"
+    ng-mouseleave="flipId = 0">
+    <div class="bg" style="background-image: url({{contact.avatar}})" ng-class="{'selected' : flipId === contact.id}"></div>
+    <span ng-show="flipId === contact.id">{{contact.days}}<br><span class="days">days</span></span>
+  </div>
+  <h3>{{contact.name}}</h3>
+  <div class="textInfo">
+    <p><strong>Last Meeting:</strong> {{contact.last_meeting | date:'EEEE, MMMM d'}} </p>
+    <p><strong>Remind inverval: </strong> {{contact.remind_interval}} days</p>
+
+
+    <!--  <p><strong>Status:</strong> {{ contact.status }}</p> -->
+  </div>
+  <button ng-click="recordDrink(contact)">We Met!</button>
+  <button class="remove" ng-click="removeContact(contact)">Delete</button>
+</div>
 </div>
 </div>
 
