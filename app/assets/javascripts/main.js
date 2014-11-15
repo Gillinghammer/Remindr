@@ -15,7 +15,11 @@
         $scope.myContacts = data['contacts']
 
         angular.forEach($scope.myContacts, function(value, key){
-          value['last_meeting'] = moment(value.last_meeting).fromNow();
+          if (value['last_meeting'] == null) {
+            value['last_meeting'] = "No meetings recorded"
+          } else {
+            value['last_meeting'] = moment(value.last_meeting).fromNow();
+          };
           value['days'] = moment(value.remind_on).diff(moment(), 'days') + 1;
         });
 
