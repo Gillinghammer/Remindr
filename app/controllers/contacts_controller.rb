@@ -1,11 +1,11 @@
 class ContactsController < ApplicationController
-  # before_action :athenticate_user!
 
   def index
-    # @contacts = current_user.contacts if user_signed_in? // TODO Fix devise sign out bug after AJAX
-    @contacts = User.find_by_email("homer@simpsons.com").contacts
-    # @contacts.each do |contact|
-    #   contact.remind_on = DateTime.now + @contact.remind_interval
+    if current_user
+      @contacts = current_user.contacts
+    else
+      redirect_to new_user_session_path
+    end
     respond_to do |format|
       format.json { render :json => @contacts }
     end

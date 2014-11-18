@@ -7,9 +7,10 @@
 
     $scope.myContacts = [];
 
-    $scope.showAddFriend = true;
+    $scope.slide = false;
 
 // DEFINE FUNCTIONS HERE
+
     $scope.getContacts = function(){
       $http.get('/users/1/contacts.json').success(function(data){
         $scope.myContacts = data['contacts']

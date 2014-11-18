@@ -2,14 +2,16 @@ DrinkyApp::Application.routes.draw do
 
   devise_for :users
 
-  resources :users do
-    resources :contacts
-    resources :meetings
-    resources :reminders
+  devise_scope :users do
+    root to: 'users#index'
+    # get "signup", to: "devise/registrations#new"
+    # get "login", to: "devise/sessions#new"
+    # get "logout", to: "devise/sessions#destroy"
   end
 
+  resources :users do
+    resources :contacts
+  end
 
-
-root to: 'home#index'
-
+# root to: "devise/sessions#new"
 end

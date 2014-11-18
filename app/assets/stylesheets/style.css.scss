@@ -1,11 +1,11 @@
 @import url(http://fonts.googleapis.com/css?family=Droid+Sans:400,700);
 $mobile: new-breakpoint(max-width 640px);
 $narrow-desktop: new-breakpoint(max-width 1000px);
-$nav-color: rgb(0,215,116);
+$nav-color: #46ADA8;
 $link-color: rgb(48,49,58);
 $headline-color: $link-color;
 $sub-headline-color: $link-color;
-$text-color: $headline-color;
+$text-color: $link-color;
 
 $fonts: 'Droid Sans', sans-serif;
 
@@ -100,6 +100,7 @@ body {
   #addContact {
     @include row();
     @include fill-parent;
+    top: 0;
     text-align: center;
     padding: 20px 0;
     input {
@@ -129,10 +130,11 @@ body {
       @include media($mobile) {
         @include span-columns(12);
         padding:0;
-        margin:0;
+        margin:0 auto;
+        text-align: center;
       }
       @include span-columns(5);
-      @include shift(-1);
+
       text-align: left;
       select {
         margin: 15px 10px;
