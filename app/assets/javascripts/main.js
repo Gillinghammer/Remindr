@@ -80,7 +80,7 @@
       $scope.flipId = false;
       console.log('mouse left');
     }
-
+    // slideDown animation for adding a new contact
     $('#addContactButton').click(function(){
       $( "#addContact" ).slideToggle( 300 );
     });
