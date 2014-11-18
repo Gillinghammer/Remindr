@@ -81,6 +81,9 @@
       console.log('mouse left');
     }
 
+    $('#addContactButton').click(function(){
+      $( "#addContact" ).slideToggle( 300 );
+    });
 // CALL FUNCTIONS HERE
 
 $scope.getContacts();

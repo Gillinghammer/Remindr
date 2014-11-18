@@ -26,6 +26,10 @@ body {
     color: $text-color;
     line-height: 1.5em;
   }
+
+  // .hidden {
+  //   display: none;
+  // }
   
   nav {
     @include row();
@@ -98,6 +102,7 @@ body {
     
   }
   #addContact {
+    display: none;
     @include row();
     @include fill-parent;
     top: 0;
