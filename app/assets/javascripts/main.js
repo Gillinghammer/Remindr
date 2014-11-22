@@ -21,7 +21,7 @@
             value['days'] = value.remind_interval;
           } else {
             value['last_meeting'] = moment().calendar(value.last_meeting);
-            value['days'] = moment(value.remind_on).diff(moment(), 'days');
+            value['days'] = moment(value.remind_on).diff(moment(), 'days')-1;
           };
           
         });
