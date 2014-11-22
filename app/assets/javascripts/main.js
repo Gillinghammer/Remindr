@@ -1,6 +1,6 @@
 (function(){
 
-  var app = angular.module('drinkyApp',['ngAnimate'])
+  var app = angular.module('drinkyApp',[])
 
 
   app.controller('DrinkyController',["$scope", "$http",  function($scope, $http){
@@ -20,7 +20,7 @@
             value['last_meeting'] = "No meetings recorded"
             value['days'] = value.remind_interval;
           } else {
-            value['last_meeting'] = moment(value.last_meeting).fromNow();
+            value['last_meeting'] = moment().calendar(value.last_meeting);
             value['days'] = moment(value.remind_on).diff(moment(), 'days') + 1;
           };
           

@@ -1,10 +1,12 @@
 class ContactsController < ApplicationController
 
   def index
+    puts current_user
     if current_user
       @contacts = current_user.contacts
     else
-      redirect_to new_user_session_path
+      # redirect_to new_user_session_path
+      @contacts = Contact.all # TODO fix this, current user is not defined.
     end
     respond_to do |format|
       format.json { render :json => @contacts }
