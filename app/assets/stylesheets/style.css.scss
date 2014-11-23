@@ -1,14 +1,12 @@
-@import url(http://fonts.googleapis.com/css?family=Droid+Sans:400,700);
-$mobile: new-breakpoint(max-width 640px);
-$narrow-desktop: new-breakpoint(max-width 1000px);
-$nav-color: #46ADA8;
-$link-color: rgb(48,49,58);
+@import url('http://fonts.googleapis.com/css?family=Droid+Sans:400,700');
+$mobile: new-breakpoint(max-width 800px);
+$nav-color: rgb(66,108,179);
+$link-color: rgb(255,255,255);
+$border-color: rgb(31,58,147);
 $headline-color: $link-color;
 $sub-headline-color: $link-color;
-$text-color: $link-color;
-
+$text-color: rgb(44,62,80);
 $fonts: 'Droid Sans', sans-serif;
-
 
 body {
   font-family: $fonts;
@@ -17,35 +15,34 @@ body {
     text-decoration: none;
     color: $link-color;
     font-weight: 400;
+    &:hover {
+      color: $border-color;
+      transition: 0.4s;
+    }
+    &:active {
+      color: darken($border-color, 20%);
+    }
   }
 
   h3 {
-    color: $sub-headline-color;
+    color: $text-color;
   }
   p {
+    margin-top: 0;
     color: $text-color;
     line-height: 1.5em;
   }
 
-  // .hidden {
-  //   display: none;
-  // }
-  
   nav {
     @include row();
     background-color: $nav-color;
     color: $headline-color;
-    border-bottom: 5px solid $link-color;
+    border-bottom: 5px solid $border-color;
     -webkit-box-shadow: 0px 5px 5px 0px rgba(50, 50, 50, 0.25);
     -moz-box-shadow:    0px 5px 5px 0px rgba(50, 50, 50, 0.25);
     box-shadow:         0px 5px 5px 0px rgba(50, 50, 50, 0.25);
     h1 {
-      @include media($narrow-desktop) {
-        @include span-columns(12);
-        text-align: center;
-        padding:10px 0;
-        margin:0;
-      }
+      font-weight: 700;
       @include media($mobile) {
         @include span-columns(12);
         text-align: center;
@@ -57,43 +54,41 @@ body {
       padding: 0;
     }
     #addContactButton {
-      @include media($narrow-desktop) {
-        @include span-columns(12);
-        text-align: center;
-        padding:0;
-        margin:0;
-      }
+      position: relative;
+      top: 30px;
+      cursor: pointer;
       @include media($mobile) {
         @include span-columns(12);
         text-align: center;
-        padding:0;
+        padding:0 0 40px 0;
         margin:0;
-        font-size: 0.75em;
+        display: block;
       }
       @include span-columns(2);
       color: $link-color;
-      padding-top: 17px;
       .fa-plus-circle {
         text-align: center;
-        font-size: 1.5em;
-        padding-top: 18px;
+        font-size: 1em;
+        padding-right: 10px;
       }
       .buttonText {
         font-size: 1.5em;
+        &:hover {
+          color: $border-color;
+          transition: 0.4s;
+        }
+        &:active {
+          color: darken($border-color, 20%);
+        }
       }
     }
     h4 {
-      @include media($narrow-desktop) {
-        @include span-columns(12);
-        text-align: center;
-        padding:0;
-        margin:0;
-      }
       @include media($mobile) {
         @include span-columns(12);
         text-align: center;
         padding:10px 0;
         margin:0;
+        display: block;
       }
       @include span-columns(1);
       text-align: right;
@@ -114,11 +109,6 @@ body {
       font-size: 1.25em;
     }
     #leftColumn {
-      @include media($narrow-desktop) {
-        @include span-columns(12);
-        padding:10px 0;
-        margin:0;
-      }
       @include media($mobile) {
         @include span-columns(12);
         padding:0;
@@ -127,11 +117,6 @@ body {
       @include span-columns(6);
     }
     #rightColumn {
-      @include media($narrow-desktop) {
-        @include span-columns(12);
-        padding:10px 0;
-        margin:0;
-      }
       @include media($mobile) {
         @include span-columns(12);
         padding:0;
@@ -143,12 +128,10 @@ body {
       text-align: left;
       select {
         margin: 15px 10px;
-        background: transparent;
         width: 131px;
         padding: 5px;
         font-size: 16px;
-        line-height: 1;
-        border: 1px solid 333;;
+        line-height: 1em;
         border-radius: 0;
         height: 40px;
       }
@@ -167,14 +150,12 @@ body {
   #contactColumns {
     @include row();
     h2 {
-      color: $nav-color;
+      font-size: 1.75em;
+      color: $border-color;
       padding-bottom: 10px;
-      border-bottom: 5px solid $link-color;
+      border-bottom: 5px solid $border-color;
     }
     #Friends, #Family, #Professional {
-      @include media($narrow-desktop) {
-        @include span-columns(6);
-      }
       @include media($mobile) {
         @include span-columns(12);
       }
@@ -195,10 +176,10 @@ body {
          @include border-right-radius(150px);
          @include border-bottom-radius(150px);
          @include border-left-radius(150px);
-         border: 10px solid $link-color;
-         -webkit-box-shadow: 0px 5px 5px 0px rgba(50, 50, 50, 0.25);
-         -moz-box-shadow:    0px 5px 5px 0px rgba(50, 50, 50, 0.25);
-         box-shadow:         0px 5px 5px 0px rgba(50, 50, 50, 0.25);
+         border: 10px solid $border-color;
+         -webkit-box-shadow: 0px 5px 5px 0px rgba(34, 49, 63, 0.35);
+         -moz-box-shadow:    0px 5px 5px 0px rgba(34, 49, 63, 0.35);
+         box-shadow:         0px 5px 5px 0px rgba(34, 49, 63, 0.35);
          .bg {
           background-size: 200px 200px;
           @include border-top-radius(150px);
@@ -219,7 +200,7 @@ body {
          }
 
           span {
-            color: $link-color;
+            color: $nav-color;
             text-align: center;
             font-size: 5em;
             font-weight: bold;
