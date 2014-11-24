@@ -19,8 +19,8 @@
             value['last_meeting'] = "No meetings recorded"
             value['days'] = value.remind_interval;
           } else {
-            value['last_meeting'] = moment().format('dddd');
-            value['days'] = moment(value.remind_on).diff(moment(), 'days')+1;
+            value['last_meeting'] = moment(value.last_meeting).format('dddd');
+            value['days'] = moment(value.remind_on).diff(moment(), 'days');
           };
           
         });
