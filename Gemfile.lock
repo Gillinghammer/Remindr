@@ -43,6 +43,7 @@ GEM
       sass (~> 3.3)
       thor
     builder (3.0.4)
+    chronic (0.10.2)
     coderay (1.1.0)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -128,6 +129,8 @@ GEM
       json (>= 1.8.0)
     warden (1.2.3)
       rack (>= 1.0)
+    whenever (0.9.4)
+      chronic (>= 0.6.3)
 
 PLATFORMS
   ruby
@@ -146,3 +149,4 @@ DEPENDENCIES
   rails (= 3.2.19)
   sass-rails (~> 3.2.3)
   uglifier (>= 1.0.3)
+  whenever

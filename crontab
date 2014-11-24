@@ -1,0 +1,1 @@
+* 10  * * 0 cd /Users/you/projects/myrailsapp && /usr/local/bin/rake RAILS_ENV=production myrailsapp:purge_audits
