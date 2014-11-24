@@ -13,12 +13,12 @@
 #   rake "some:great:rake:task"
 # end
 #
+# env :PATH, ENV['PATH']
 
-set :environment, 'development'
+# set :environment, "development"
+# set :output, {:error => "log/cron_error_log.log", :standard => "log/cron_log.log"}
 
-every 2.minutes do
-  rake "remind"
-  puts "wheneverize is working"
-end
-
-# Learn more: http://github.com/javan/whenever
+# every 2.minutes do
+#   puts "running rake remind now"
+#   rake "remind"
+# end
