@@ -12,7 +12,9 @@
 
   <div><%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
-
+  <div><%= f.check_box :receive_updates, checked: true %>
+    <%= f.label :receive_updates, "Receive Weekly Reminder Emails" %>
+  </div>
   <div><%= f.submit "Sign up" %></div>
 <% end %>
 
