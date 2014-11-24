@@ -13,8 +13,12 @@
 #   rake "some:great:rake:task"
 # end
 #
+
+set :environment, 'development'
+
 every 2.minutes do
   rake "remind"
+  puts "wheneverize is working"
 end
 
 # Learn more: http://github.com/javan/whenever

@@ -4,7 +4,7 @@
 
 
   app.controller('DrinkyController',["$scope", "$http",  function($scope, $http){
-
+    var userId = window.location.pathname.split('/').pop();
     $scope.myContacts = [];
 
     $scope.slide = false;
@@ -12,9 +12,8 @@
 // DEFINE FUNCTIONS HERE
 
     $scope.getContacts = function(){
-      $http.get('/users/1/contacts.json').success(function(data){
+      $http.get('/users/'+ userId + '/contacts.json').success(function(data){
         $scope.myContacts = data['contacts']
-
         angular.forEach($scope.myContacts, function(value, key){
           if (value['last_meeting'] == null) {
             value['last_meeting'] = "No meetings recorded"
@@ -25,8 +24,6 @@
           };
           
         });
-
-
         console.log($scope.myContacts);
       });
     };
@@ -37,34 +34,36 @@
       contactAvatar = $('#avatarField').val()
       selectedInterval = parseInt($('#intervalField').val());
       contactType = $('#contactTypeField').val();
-      $http.post('/users/1/contacts.json', 
+      $http.post('/users/' + userId + '/contacts.json', 
         {
           name: contactName, 
           email: contactEmail,
           avatar: contactAvatar,
           contact_type: contactType,
           remind_interval: selectedInterval,
-          user_id: 1
+          user_id: userId
         }).success(function(data){
-          $scope.showAddFriend = true;
           $scope.getContacts();
           $('#nameField').val("");
           $('#emailField').val("");
           $('#avatarField').val("");
+          $('#intervalField').val("");
+          $('#contactTypeField').val("Professional");
+          $( "#addContact" ).slideToggle( 300 );
         })
     };
     $scope.removeContact = function(contact){
 
-        $http.delete('/users/1/contacts/'+contact.id+'.json').success(function(data){
+        $http.delete('/users/'+ userId + '/contacts/'+contact.id+'.json').success(function(data){
           console.log('Contact removed');
           $scope.getContacts();
         });
     };
 
     $scope.recordDrink = function(contact){
-      $http.post('/users/1/meetings.json',
+      $http.post('/users/' + userId + '/meetings.json',
       {
-        user_id: 1,
+        user_id: userId,
         contact_id: contact.id
       }).success(function(data){
         console.log("meeting recorded");
