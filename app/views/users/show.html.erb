@@ -4,23 +4,22 @@
     <li class="tab-header-and-content">
       <a href="#" class="tab-link is-active">Friends</a>
       <div class="tab-content">
-
-        <div class="cards" ng-repeat="">
-          <div class="card">
+        <div class="cards">
+          <div class="card" ng-repeat="contact in myContacts | orderBy: 'remind_on':reverse | filter:{ contact_type: 'Friend'}">
             <div class="card-image">
-              <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains.png" alt="">
+              <img src="{{contact.avatar}}" alt="">
             </div>
             <div class="card-header">
-              First Card
+              {{contact.name}}
             </div>
             <div class="card-copy">
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, officiis sunt neque facilis culpa molestiae necessitatibus delectus veniam provident.</p>
             </div>
             <div class="card-stats">
               <ul>
-                <li>98<span>Items</span></li>
-                <li>298<span>Things</span></li>
-                <li>923<span>Objects</span></li>
+                <li>{{contact.last_meeting}}<span>Last Contact</span></li>
+                <li>{{contact.remind_interval}}<span>Remind</span></li>
+                <li>{{contact.days}}<span>Days</span></li>
               </ul>
             </div>
           </div>
