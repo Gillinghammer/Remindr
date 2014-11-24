@@ -1,4 +1,4 @@
-@import url('http://fonts.googleapis.com/css?family=Droid+Sans:400,700');
+@import url('http://fonts.googleapis.com/css?family=Nunito:400,700,300');
 $mobile: new-breakpoint(max-width 800px);
 $nav-color: rgb(66,108,179);
 $link-color: rgb(255,255,255);
@@ -6,7 +6,7 @@ $border-color: rgb(31,58,147);
 $headline-color: $link-color;
 $sub-headline-color: $link-color;
 $text-color: rgb(44,62,80);
-$fonts: 'Droid Sans', sans-serif;
+$fonts: 'Nunito', sans-serif;
 
 body {
   font-family: $fonts;
@@ -38,15 +38,18 @@ body {
     background-color: $nav-color;
     color: $headline-color;
     border-bottom: 5px solid $border-color;
+    padding: 10px 0;
     -webkit-box-shadow: 0px 5px 5px 0px rgba(50, 50, 50, 0.25);
     -moz-box-shadow:    0px 5px 5px 0px rgba(50, 50, 50, 0.25);
     box-shadow:         0px 5px 5px 0px rgba(50, 50, 50, 0.25);
     h1 {
       font-weight: 700;
+      font-size: 3em;
+      margin: 0;
       @include media($mobile) {
         @include span-columns(12);
         text-align: center;
-        padding:0;
+        padding: 10px 0;
         margin:0;
       }
       @include span-columns(7);
@@ -54,25 +57,24 @@ body {
       padding: 0;
     }
     #addContactButton {
-      position: relative;
-      top: 30px;
       cursor: pointer;
       @include media($mobile) {
         @include span-columns(12);
         text-align: center;
-        padding:0 0 40px 0;
+        padding:0 0 10px 0;
         margin:0;
         display: block;
       }
       @include span-columns(2);
       color: $link-color;
+      text-align: right;
       .fa-plus-circle {
         text-align: center;
         font-size: 1em;
         padding-right: 10px;
       }
       .buttonText {
-        font-size: 1.5em;
+        font-size: 1em;
         &:hover {
           color: $border-color;
           transition: 0.4s;
@@ -92,7 +94,8 @@ body {
       }
       @include span-columns(1);
       text-align: right;
-      font-size: 1.5em;
+      font-size: 1em;
+      margin: 0;
     }
     
   }
@@ -137,7 +140,7 @@ body {
       }
       button {
         @include button(shiny, $headline-color);
-        margin: 16px 10px;
+        margin: 0px 10px;
         outline: none;
       }
     }

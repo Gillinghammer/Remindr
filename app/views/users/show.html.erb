@@ -41,7 +41,7 @@
   </div>
 </div>
 <div id="Professional">
-  <h2>Professional</h2>
+  <h2>Professionals</h2>
   <div class="contact" ng-repeat="contact in myContacts | orderBy: 'remind_on':reverse | filter:{ contact_type: 'Professional'}">
     <div class="avatar" ng-click="flip(contact)" ng-mouseenter="flipId = contact.id"
     ng-mouseleave="flipId = 0">
