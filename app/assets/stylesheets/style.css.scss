@@ -9,10 +9,9 @@ $sub-headline-color: $link-color;
 $text-color: rgb(44,62,80);
 $fonts: 'Nunito', sans-serif;
 
-
 body {
   font-family: $fonts;
-
+  @include outer-container(100%);
   a {
     text-decoration: none;
     color: $link-color;
@@ -50,14 +49,21 @@ body {
   }
 
   #loginPage {
+    padding-top: 20px;
     @include shift(1);
-
+    @include row();
+    @include span-columns(3);
     input[type="submit"] {
       @include button(shiny, $headline-color);
       margin: 10px 10px;
       outline: none;
     }
-
+    label {
+      display: inline;
+    }
+    input {
+      margin: 10px 0;
+    }
     a {
       color: $border-color;
       // border-bottom: 3px solid $border-color;
@@ -72,11 +78,10 @@ body {
         border-bottom: 3px solid darken($border-color, 20%);
       }
     }
-
   }
 
   nav {
-    @include row();
+    // @include row();
     background-color: $nav-color;
     color: $headline-color;
     border-bottom: 5px solid $border-color;
@@ -98,175 +103,17 @@ body {
       @include shift(1);
       padding: 0;
     }
-    #addContactButton {
-      cursor: pointer;
-      @include media($mobile) {
-        @include span-columns(12);
-        text-align: center;
-        padding:0 0 10px 0;
-        margin:0;
-        display: block;
-      }
-      @include span-columns(2);
-      color: $link-color;
-      text-align: right;
-      .fa-plus-circle {
-        text-align: center;
-        font-size: 1em;
-        padding-right: 10px;
-      }
-      .buttonText {
-        font-size: 1em;
-        border-bottom: 3px solid $link-color;
-        padding-bottom: 3px;
-        &:hover {
-          color: $border-color;
-          border-bottom: 3px solid $border-color;
-          transition: 0.4s;
-        }
-        &:active {
-          color: darken($border-color, 20%);
-          border-bottom: 3px solid darken($border-color, 20%);
-        }
-      }
-    }
-    h4 {
-      @include media($mobile) {
-        @include span-columns(12);
-        text-align: center;
-        padding:10px 0;
-        margin:0;
-        display: block;
-      }
-      @include span-columns(1);
-      text-align: right;
-      font-size: 1em;
-      margin: 0;
-    }
-    
   }
-  #addContact {
-    display: none;
-    @include row();
-    @include fill-parent;
-    top: 0;
-    text-align: center;
-    padding: 20px 0;
-    #leftColumn {
-      @include media($mobile) {
-        @include span-columns(12);
-        padding:0;
-        margin:0;
-      }
-      @include span-columns(6);
-    }
-    #rightColumn {
-      @include media($mobile) {
-        @include span-columns(12);
-        padding:0;
-        margin:0 auto;
-        text-align: center;
-      }
-      @include span-columns(5);
-
-      text-align: left;
-      select {
-        margin: 15px 10px;
-        width: 131px;
-        padding: 5px;
-        font-size: 16px;
-        line-height: 1em;
-        border-radius: 0;
-        height: 40px;
-      }
-      button {
-        @include button(shiny, $headline-color);
-        margin: 0px 10px;
-        outline: none;
-      }
-    }
-  }
-}
-
-#home {
-  padding-top: 20px;
-  @include outer-container;
-  #contactColumns {
-    @include row();
-    h2 {
-      font-size: 1.75em;
-      color: $nav-color;
-      padding-bottom: 10px;
-      border-bottom: 5px solid $border-color;
-    }
-    #Friends, #Family, #Professional {
-      @include media($mobile) {
-        @include span-columns(12);
-      }
-      @include span-columns(4);
-      text-align: center;
-      .contact {
-        @include fill-parent;
-        text-align: center;
-        padding: 20px 0;
-        .avatar {
-          display: block;
-          margin: 0 auto;
-          width:  200px;
-          height: 200px;
-          position: relative;
-          z-index: 1;
-         @include border-top-radius(150px);
-         @include border-right-radius(150px);
-         @include border-bottom-radius(150px);
-         @include border-left-radius(150px);
-         border: 10px solid $border-color;
-         -webkit-box-shadow: 0px 5px 5px 0px rgba(34, 49, 63, 0.35);
-         -moz-box-shadow:    0px 5px 5px 0px rgba(34, 49, 63, 0.35);
-         box-shadow:         0px 5px 5px 0px rgba(34, 49, 63, 0.35);
-         .bg {
-          background-size: 200px 200px;
-          @include border-top-radius(150px);
-          @include border-right-radius(150px);
-          @include border-bottom-radius(150px);
-          @include border-left-radius(150px);
-          position: absolute;
-          z-index: -1;
-          top: 0;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          transition: 0.4s;
-          &.selected {
-            transition: 0.4s;
-            opacity: 0.5;
-          }
-         }
-
-          span {
-            color: $nav-color;
-            text-align: center;
-            font-size: 5em;
-            font-weight: bold;
-            position: relative;
-            top: 30px;
-            line-height: 1em;
-            &.days {
-              position: relative;
-              top: -30px;
-              font-size: 0.5em;
-            }
-          }
-        }
-        button {
-          @include button(shiny, $nav-color);
-          margin: 20px 10px;
-          outline: none;
-          &.remove {
-            @include button(shiny, #aa0000);
-          }
-        }
-      }
+  div#home {
+    padding-top: 20px;
+    @include outer-container(100%);
+    // @include row();
+    @include span-columns(9);
+    @include shift(1);
+    div.tab-content {
+      @include fill-parent;
+      // @include span-columns(12);
+      // @include outer-container(100%);
     }
   }
 }

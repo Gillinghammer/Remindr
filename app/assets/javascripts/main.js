@@ -85,6 +85,11 @@
     });
 // CALL FUNCTIONS HERE
 
+setTimeout(function() {
+    $('.flash-success').fadeOut('fast');
+    $('.flash-notice').fadeOut('fast');
+}, 3000); // <-- time in milliseconds
+
 $scope.getContacts();
 
   }]);
