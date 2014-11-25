@@ -5,8 +5,16 @@
       <a href="#" class="tab-link is-active">Friends</a>
       <div class="tab-content">
 
-        <div class="contactCard" ng-repeat>
-
+        <div class="contactCard" ng-repeat="contact in myContacts | orderBy: 'remind_on':reverse | filter:{ contact_type: 'Friend'}">
+          <img src="{{contact.avatar}}">
+          <h4>{{contact.name}}</h4>
+          <div class="contactInfo">
+            <ul>
+              <li>{{contact.last_meeting}} <span>Last Contact</span></li>
+              <li>{{contact.remind_interval}} <span>Remind Every</span></li>
+              <li>{{contact.days}} <span>Days</span></li>
+            </ul>
+          </div>
         </div>
 
       </div>
@@ -14,13 +22,39 @@
     <li class="tab-header-and-content">
       <a href="#" class="tab-link">Family</a>
       <div class="tab-content">
-        <p>Ut laoreet augue et neque pretium non sagittis nibh pulvinar. Etiam ornare tincidunt orci quis ultrices. Pellentesque ac sapien ac purus gravida ullamcorper. Duis rhoncus sodales lacus, vitae adipiscing tellus pharetra sed. Praesent bibendum lacus quis metus condimentum ac accumsan orci vulputate. Aenean fringilla massa vitae metus facilisis congue. Morbi placerat eros ac sapien semper pulvinar. Vestibulum facilisis, ligula a molestie venenatis, metus justo ullamcorper ipsum, congue aliquet dolor tortor eu neque. Sed imperdiet, nibh ut vestibulum tempor, nibh dui volutpat lacus, vel gravida magna justo sit amet quam. Quisque tincidunt ligula at nisl imperdiet sagittis. Morbi rutrum tempor arcu, non ultrices sem semper a. Aliquam quis sem mi.</p>
+        
+
+        <div class="contactCard" ng-repeat="contact in myContacts | orderBy: 'remind_on':reverse | filter:{ contact_type: 'Family'}">
+          <img src="{{contact.avatar}}">
+          <h4>{{contact.name}}</h4>
+          <div class="contactInfo">
+            <ul>
+              <li>{{contact.last_meeting}} <span>Last Contact</span></li>
+              <li>{{contact.remind_interval}} <span>Remind Every</span></li>
+              <li>{{contact.days}} <span>Days</span></li>
+            </ul>
+          </div>
+        </div>
+
       </div>
     </li>
     <li class="tab-header-and-content">
       <a href="#" class="tab-link">Professionals</a>
       <div class="tab-content">
-        <p>Donec mattis mauris gravida metus laoreet non rutrum sem viverra. Aenean nibh libero, viverra vel vestibulum in, porttitor ut sapien. Phasellus tempor lorem id justo ornare tincidunt. Nulla faucibus, purus eu placerat fermentum, velit mi iaculis nunc, bibendum tincidunt ipsum justo eu mauris. Nulla facilisi. Vestibulum vel lectus ac purus tempus suscipit nec sit amet eros. Nullam fringilla, enim eu lobortis dapibus, quam magna tincidunt nibh, sit amet imperdiet dolor justo congue turpis.</p>    
+        
+
+        <div class="contactCard" ng-repeat="contact in myContacts | orderBy: 'remind_on':reverse | filter:{ contact_type: 'Professional'}">
+          <img src="{{contact.avatar}}">
+          <h4>{{contact.name}}</h4>
+          <div class="contactInfo">
+            <ul>
+              <li>{{contact.last_meeting}} <span>Last Contact</span></li>
+              <li>{{contact.remind_interval}} <span>Remind Every</span></li>
+              <li>{{contact.days}} <span>Days</span></li>
+            </ul>
+          </div>
+        </div>
+
       </div>
     </li>
   </ul>
