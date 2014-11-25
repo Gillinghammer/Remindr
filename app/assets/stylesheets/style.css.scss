@@ -49,7 +49,20 @@ body {
   }
 
   div#addContact {
-    @include span-columns(4);
+    @include span-columns(6);
+    @include shift(1);
+    button {
+      @include button(shiny, $nav-color);
+    }
+    .col {
+      @include span-columns(3 of 6);
+      float: left;
+      display: inline-block;
+      select {
+        margin-top: $base-spacing;
+        width: 120px;
+      }
+    }
   }
 
   #loginPage {
@@ -85,7 +98,6 @@ body {
   }
 
   nav {
-    // @include row();
     background-color: $nav-color;
     color: $headline-color;
     border-bottom: 5px solid $border-color;
@@ -95,6 +107,7 @@ body {
     -moz-box-shadow:    0px 5px 5px 0px rgba(50, 50, 50, 0.25);
     box-shadow:         0px 5px 5px 0px rgba(50, 50, 50, 0.25);
     h1 {
+      font-family: $fonts;
       font-weight: 700;
       font-size: 3em;
       margin: 0;
@@ -120,6 +133,9 @@ body {
         cursor: pointer;
         padding-bottom: 2px;
         border-bottom: 3px solid $link-color;
+        .fa.fa-plus-circle {
+          padding-right: 5px;
+        }
         &:hover {
           color: $border-color;
           border-bottom: 3px solid $border-color;
@@ -164,10 +180,11 @@ body {
           position: relative;
           top: 30px;
           ul li {
+              margin: 0 auto;
                display: inline;
                color: $border-color;
                font-weight: 800;
-               font-size: 1.2em;
+               font-size: 1em;
                float: left;
                border-right: 1px solid lighten($text-color, 20%);
                line-height: 1.1em;
